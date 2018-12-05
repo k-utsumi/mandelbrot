@@ -1,9 +1,11 @@
 'use strict';
 
 const $          = global.jQuery;
-const select     = require('select2');
+const select2    = require('select2');
 const storage    = require('../storage');
 const events     = require('../events');
+
+select2($);
 
 class Browser {
 

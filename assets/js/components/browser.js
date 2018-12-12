@@ -23,7 +23,8 @@ class Browser {
         this._initTabs();
 
         $(".FileBrowser-select").select2({
-            minimumResultsForSearch: Infinity
+            minimumResultsForSearch: Infinity,
+            dropdownParent: $('.Browser-resources')
         }).on('change', function(){
             $(this).closest('.FileBrowser').find('[data-role="resource-preview"]').removeClass(self._activeClass);
             $(`#${this.value}`).addClass(self._activeClass);

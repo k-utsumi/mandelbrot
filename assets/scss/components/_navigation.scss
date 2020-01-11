@@ -5,8 +5,6 @@
 
 .Navigation-group {
     @include clearfix;
+    margin: 10px;
 
-    & + & {
-        margin-top: 1.5rem;
-    }
 }

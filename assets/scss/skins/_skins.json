@@ -1,8 +1,8 @@
 [{
     "name": "default",
-    "accent": "#14f",
+    "accent": "#354341",
     "complement": "#fff",
-    "links": "#28f"
+    "links": "#2aab9f"
 },{
     "name": "aqua",
     "accent": "#7df",

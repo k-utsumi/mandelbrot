@@ -44,7 +44,7 @@
     overflow: auto;
     max-width: calc(100% - #{$handle-size} + 1px);
     min-width: 180px;
-    background-color: white;
+    background-color: #fff;
     -webkit-overflow-scrolling: touch;
 
     @include mq($until: navCollapse) {

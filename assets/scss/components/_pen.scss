@@ -4,7 +4,7 @@
     align-items: stretch;
     height: 100%;
     overflow: hidden;
-    background: white;
+    background: #fff;
 
     &.is-resizing {
         cursor: grabbing;
@@ -37,7 +37,7 @@
             height: 0;
             width: 0;
             overflow: hidden;
-            background-color: #fff !important;
+            background: #fff !important;
             border-radius: 100%;
             border-style: solid;
             border-width: 0.125rem;

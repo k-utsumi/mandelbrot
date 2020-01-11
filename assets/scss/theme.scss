@@ -1,21 +1,34 @@
 $font-family-monospace: Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
 $font-family-sans-serif: Montserrat, "Noto Sans JP", Helvetica, sans-serif;
 
-$color-link: #28f !default;
-$color-text: #535363 !default;
-$color-heading: #444 !default;
+$font-size-base: 15px;
+
+$font-size-h1: 30px;
+$font-size-h2: 22px;
+$font-size-lg: 18px;
+$font-size-md: 14px;
+$font-size-sm: 12px;
+
+$color-main: $color-link;
+$color-link: darken($color-link, 5%);
+$color-text: #475a57;
+$color-heading: #354341;
 
 $color-background: #fff !default;
-$color-background-offset: #f6f6f6 !default;
+$color-background-offset: #f7f8f7;
 
-$color-ui-hover: rgba($color-text, 0.05) !default;
-$color-ui-active: rgba($color-text, 0.075) !default;
+$color-ui-hover:  rgba($color-text, .075);
+$color-ui-active: rgba($color-text, .05);
 
-$color-header-background: #14f !default;
-$color-header-content: #fff !default;
+$color-header-background: #1b2726;  // #f0f1f1;
+$color-header-content: #fff;
 
-$color-frame-border: rgba($color-text, 0.25) !default;
+$color-frame-border: rgba(#00100e, .06);
 
 $color-sidebar-heading: rgba($color-text, 0.75) !default;
+
+$color-status-ready: #dddfdf;
+$color-status-wip:   #ef9816;
+$color-status-draft: #e2534b;  // = prototype
 
 $highlight-theme: 'github' !default;

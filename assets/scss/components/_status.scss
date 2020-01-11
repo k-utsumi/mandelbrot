@@ -5,10 +5,10 @@
 }
 
 .Status-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    background-color: white;
-    border: 1px solid transparent;
+    $size: 8px;
+    width:  $size;
+    height: $size;
+    // border: solid 1px rgba($color-text, .2);
     border-radius: 100%;
 }
 
@@ -20,17 +20,22 @@
     @include font(label);
     display: inline-block;
     border-radius: 2rem;
-    padding: 0.125rem 0.75rem;
-    color: white;
+    padding: .125rem .75rem;
+    color: #fff;
     white-space: nowrap;
 }
 
 .Status-label + .Status-label {
-    @include margin-inline(start, 0.25rem);
+    @include margin-inline(start, .25rem);
 }
 
 .Status--labelled {
     .Status-label {
-        @include margin-inline(end, 0.75rem);
+        @include margin-inline(end, .75rem);
     }
 }
+
+.Status-ready { background-color: $color-status-ready }
+.Status-wip   { background-color: $color-status-wip   }
+.Status-prototype,
+.Status-draft { background-color: $color-status-draft }

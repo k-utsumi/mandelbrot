@@ -15,7 +15,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
-    "prepack": "npm run build"
+    "prepack": "npm install && npm run build"
   },
   "peerDependencies": {
     "@frctl/fractal": ">= 1.1.0-alpha.0 < 2"

@@ -1,12 +1,32 @@
 .Tree {
+    // box-shadow: 0 0 1px rgba(0,0,0, .1);
+    box-shadow: 0 0 0 1px $color-frame-border;
+    // border-radius: 4px 4px 0 0;
+    border-radius: 4px;
+    // overflow: hidden;
+    background: #fff;
     white-space: nowrap;
+
+    ul { list-style: none }
 }
 
+$tree-padding-side: 1.125rem;
+$tree-angle-indent: .725rem;
 .Tree-title {
+    $spacer: 5px;
+
     @include font(label);
-    @include padding-inline(start, 1rem);
-    margin-bottom: 0.5rem;
+    // box-shadow:
+    //     0 -1px 1px rgba(0,0,0, .1) inset
+    //     ,
+    //     0 1px 1px rgba(0,0,0, .1)
+    // ;
+    // border-radius: 0 0 1em 1em;
+    border-bottom: solid 1px $color-frame-border;
+    padding: ($spacer + 1) ($tree-padding-side - $tree-angle-indent) $spacer;
+    // background: $color-background-offset;
     color: $color-sidebar-heading;
+    font-weight: bold;
 }
 
 .Tree-collection {
@@ -19,12 +39,8 @@
 
         .Tree-collectionLabel {
             span::before {
-                [dir="ltr"] & {
-                    background-image: url("../img/icon-navigation-closed-ltr.svg");
-                }
-                [dir="rtl"] & {
-                    background-image: url("../img/icon-navigation-closed-rtl.svg");
-                }
+                [dir="ltr"] & { transform: rotate(-90deg) }
+                [dir="rtl"] & { transform: rotate( 90deg) }
             }
         }
     }
@@ -32,37 +48,47 @@
 
 .Tree-collectionLabel {
     @include font(caption);
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
+    margin: 0;
+    border: 0;
+    padding: .375rem 0;
+    width: 100%;
+    text-align: inherit;
     cursor: pointer;
     touch-action: manipulation;
     user-select: none;
     color: $color-text;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $color-ui-hover;
     }
 
     span {
-        @include padding-inline(start, 0.75rem);
-        @include margin-inline(start, -1.75rem);
+        @include padding-inline(start, $tree-angle-indent);
+        @include margin-inline(start, ($tree-angle-indent * -1 - $tree-padding-side));
         display: block;
         position: relative;
     }
 
     span::before {
         @include offset-inline(start);
-        display: inline-block;
+        // display: inline-block;
         position: absolute;
-        top: 0.25rem;
-        width: 0.75rem;
-        height: 0.75rem;
-        background-image: url("../img/icon-navigation-opened.svg");
-        background-size: 0.5rem;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        opacity: 0.5;
-        content: "";
+        top: .33em;
+        // width:  .9rem;
+        // height: .9rem;
+        // -webkit-mask-image: url("../img/icon-navigation-opened.svg");
+        // -webkit-mask-size: .5rem;
+        // -webkit-mask-repeat: no-repeat;
+        // -webkit-mask-position: 50%;
+        // background: $color-text;
+
+        font-size: 10px;
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        content: "\f107";
+        opacity: .5;
+        transition: .15s ease-out;
     }
 }
 
@@ -73,26 +99,52 @@
 .Tree-entityLink {
     display: flex;
     align-items: center;
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
+    padding: .375rem 0;
     text-decoration: none;
 
-    &:hover {
+    position: relative;
+    &::after {
+        position: absolute;
+        margin-top: 4px;
+        right: 1em;
+        // color: $color-link;
+        color: $color-text;
+        opacity: 0;
+
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        line-height: 0;
+        // content: "\f1ae";
+        // content: "\f183";
+        content: "\f554";
+        // content: "\f530";
+    }
+
+    &:hover,
+    &:focus {
         background-color: $color-ui-hover;
     }
 
     .is-current & {
         background-color: $color-ui-active;
+        color: #165953;
+        pointer-events: none;
+
+        &::after {
+            margin-top: 1px;
+            opacity: 1;
+            transition: .28s cubic-bezier(.25, 1, .75, 2);
+        }
     }
 
     .Status {
-        @include margin-inline(start, 0.25rem);
+        @include margin-inline(start, .25rem);
     }
 }
 
 @for $i from 1 through 8 {
     .Tree-depth-#{$i} {
-        $padLeft: ($i * 1rem);
+        $padLeft: ($i * $tree-padding-side);
 
         .Tree-collectionLabel,
         .Tree-entityLink {

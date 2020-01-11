@@ -1,5 +1,5 @@
 .Document {
-    padding: 1.5rem 2rem;
+    padding: 1.4rem 2rem 3rem;
 
     @include mq($until: navCollapse) {
         padding: 1.25rem 1rem;
@@ -8,10 +8,13 @@
 
 .Document-header {
     display: flex;
+    margin-bottom: 1.75rem;
+    box-shadow:
+        0 2px 1px -1px rgba(0,0,0, .05),
+        0 8px 6px -6px rgba(0,0,0, .05);
+    // border-bottom: 1px solid $color-frame-border;
+    padding-bottom: .8rem;
     width: 100%;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid $color-frame-border;
-    padding-bottom: 0.5rem;
 
     .Status {
         @include margin-inline(start, auto);

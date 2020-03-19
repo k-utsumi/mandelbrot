@@ -1416,7 +1416,7 @@ h3 {
       flex-direction: row-reverse;
   -ms-flex-positive: 1;
       flex-grow: 1;
-  height: calc(100% - 3rem); }
+  height: calc(100% - 60px); }
   @media (max-width: 31.24em) {
     .Frame-body {
       -webkit-margin-end: 240px;
